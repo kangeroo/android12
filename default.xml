@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- AOSP -->
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com" />
+
+  <!-- CM -->
+  <remote  name="cm"
+           fetch="git://github.com/CyanogenMod/" />
+
+  <!-- CHAMELEONOS -->
+  <remote  name="cos"
+           fetch="git://github.com/ChameleonOS/" />
+
+  <!-- GENERIC GITHUB -->
+  <remote  name="gh"
+           fetch="git://github.com/" />
+
+  <!-- OMNIROM -->
+  <remote  name="omni"
+           fetch="git://github.com/omnirom/" />
+
+  <!-- OSE-ROM -->
+  <remote  name="ose"
+           fetch="git://github.com/OSE-ROM/" />
+
+  <!-- THEMUPPETS -->
+  <remote  name="tm"
+           fetch="git://github.com/TheMuppets/" />
+
+  <!-- DEFAULTS -->
+  <default revision="refs/heads/cm-11.0"
+           remote="cm"
+           sync-c="true"
+           sync-j="8" />
+
+  <!-- CHAMELEONOS -->
+  <project path="packages/wallpapers/PhaseBeam" name="android_packages_wallpapers_PhaseBeam" remote="cos" revision="kitkat" />
+  <!-- OMNIROM -->
+  <project path="packages/apps/DSPManager" name="android_packages_apps_DSPManager" remote="omni" revision="android-4.4" />
+  <project path="packages/apps/OmniSwitch" name="android_packages_apps_OmniSwitch" remote="omni" revision="android-4.4" />
+  <project path="system/media" name="android_system_media" groups="pdk" remote="omni" revision="android-4.4" />
+  <!-- OSE-ROM -->
+  <project path="ose" name="ose" remote="ose" revision="ose" />
+  <project path="build" name="android_build" groups="pdk" remote="ose" revision="ose" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="frameworks/base" name="android_frameworks_base" remote="ose" revision="ose" />
+  <project path="frameworks/native" name="android_frameworks_native" groups="pdk" remote="ose" revision="ose" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="ose" revision="ose" />
+  <project path="system/core" name="android_system_core" groups="pdk" remote="ose" revision="ose" />
+  <project path="vendor/ose" name="android_vendor_ose" remote="ose" revision="ose" >
+    <copyfile src="tools/build-ose.sh" dest="build-ose.sh" />
+  </project>
+
+</manifest>
